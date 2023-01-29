@@ -31,6 +31,7 @@ public class JetsApp {
 
 		for (;;) {
 			displayMenu();
+			System.out.println("Please input a number for which selection you would like to make : ");
 			String answer = input.next();
 			switch (answer) {
 			case "1":
