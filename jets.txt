@@ -1,0 +1,5 @@
+FighterJet,F22 Raptor,1500,1890,216
+CargoPlane,B2 Spirit,600,6900,737
+FighterJet,A10 WartHog,400,2580,10
+CargoPlane,U2 DragonLady,500,7010,35
+CargoPlane,SR71 Blackbird,2200,3355,34
