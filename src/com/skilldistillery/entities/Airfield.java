@@ -11,24 +11,19 @@ public class Airfield {
 
 	Scanner input = new Scanner(System.in);
 
-	FighterJet fj = new FighterJet();
-	CargoJet cj = new CargoJet();
 
 	protected List<Jet> fleet = new ArrayList<>();
-//	String type, String model, int range, double speed, double price
 
 	public Airfield() {
 
 	}
 
 	public List<Jet> putJetsIntoListFromText() {
-		// reading jets from file and adding them to a list of jets
 
 		Jet jet = null;
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
 			String line;
 			while ((line = bufIn.readLine()) != null) {
-//				System.out.println(line);
 				String[] splitLine = line.split(",");
 				String type = splitLine[0];
 				String model = splitLine[1];
@@ -38,12 +33,10 @@ public class Airfield {
 
 				if (type.equals("FighterJet")) {
 					jet = new FighterJet(type, model, speed, range, price);
-//					System.out.println(jet);
 					fleet.add(jet);
 				}
 				if (type.equals("CargoPlane")) {
 					jet = new CargoJet(type, model, speed, range, price);
-//					System.out.println(jet);
 					fleet.add(jet);
 				}
 
@@ -56,7 +49,6 @@ public class Airfield {
 	}
 
 	public void displayFleet() {
-		// cycling through fleet and displaying info for each jet
 		for (int i = 0; i < fleet.size(); i++) {
 			System.out.println("Fleet Index Number: " + i + " " + fleet.get(i));
 		}
@@ -91,8 +83,7 @@ public class Airfield {
 	public void fly() {
 
 		for (int i = 0; i < fleet.size(); i++) {
-			System.out.println(fleet.get(i).toString() + " \n Flight Time at Max Speed: "
-					+ fleet.get(i).range / fleet.get(i).speed + " Hours");
+			fleet.get(i).fly();
 		}
 	}
 
@@ -117,18 +108,18 @@ public class Airfield {
 
 	public void printLoadingMissiles() {
 		for (int i = 0; i < fleet.size(); i++) {
-			if (fleet.get(i).type.equals("FighterJet")) {
+			if (fleet.get(i) instanceof CombatReady) {
 				System.out.println(fleet.get(i));
-				fj.printLoadingMissiles();
+				fleet.get(i).printLoadingMissiles();
 			}
 		}
 	}
 
 	public void loadingCargo() {
 		for (int i = 0; i < fleet.size(); i++) {
-			if (fleet.get(i).type.equals("CargoPlane")) {
+			if (fleet.get(i) instanceof CargoCarrier) {
 				System.out.println(fleet.get(i));
-				cj.loadCargo();
+				fleet.get(i).loadCargo();
 			}
 		}
 	}

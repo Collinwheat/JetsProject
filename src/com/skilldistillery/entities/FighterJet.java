@@ -24,9 +24,6 @@ public class FighterJet extends Jet implements CombatReady{
 		this.flightTime = speed/range;
 	}
 	
-	public void fly() {
-		
-	}
 	
 	public void printLoadingMissiles() {
 		System.out.println("Loading missiles now...");

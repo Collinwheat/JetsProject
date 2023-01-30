@@ -76,13 +76,9 @@ public abstract class Jet implements CombatReady, CargoCarrier{	//class which al
 	}
 	
 	public void fly() {
-		
-		//display how much time the jet can fly for on a full tank
+		double flightTime = range / speed;
+		System.out.println("model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price);
+		System.out.println("The max amount of time that the " +  model + " can fly at max speed is: " + flightTime + " hours");
 	}
 	
-	public double getSpeedInMach() {
-		
-		double speedInMach = speed / 762.1;
-		return speedInMach;
-	}
 }
